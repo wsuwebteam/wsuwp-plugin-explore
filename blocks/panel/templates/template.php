@@ -16,7 +16,7 @@
 	</div>
 	<div class="wsu-explore-panel__background">
 		<?php if ( ! empty( $atts['bg_video_src'] ) ) : ?>
-		<iframe class="wsu-explore-panel__background__video wsu-explore-panel__background__video--vimeo" src="<?php echo esc_url( $atts['bg_video_src'] ); ?>?autoplay=true&loop=1<?php if ( empty( $atts['bg_video_is_360'] ) ) : ?>&background=1<?php endif; ?>&portrait=0&autopause=0" frameborder="0" allow="autoplay; fullscreen<?php if ( ! empty( $atts['bg_video_is_360'] ) ) : ?>; gyroscope; accelerometer<?php endif; ?>" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+		<iframe class="wsu-explore-panel__background__video wsu-explore-panel__background__video--vimeo" src="<?php echo esc_url( $atts['bg_video_src'] ); ?>?&loop=1<?php if ( empty( $atts['bg_video_is_360'] ) ) : ?>&background=1<?php endif; ?>&portrait=0&autopause=0" frameborder="0" allow="fullscreen<?php if ( ! empty( $atts['bg_video_is_360'] ) ) : ?>; gyroscope; accelerometer<?php endif; ?>" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
 		<?php elseif ( ! empty( $atts['img_src'] ) ) : ?>
 		<img class="wsu-explore-panel__background__image" src="<?php echo esc_url( $atts['img_src'] ); ?>" />
 		<?php endif; ?>

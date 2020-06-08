@@ -8,7 +8,7 @@
 				class="wsu-explore-panel-group__map__pin" 
 				data-slide="<?php echo esc_html( $pin[3] ); ?>"
 				style="top:<?php echo esc_html( $pin[1] ); ?>%;left:<?php echo esc_html( $pin[2] ); ?>%"
-				>
+				><span class="wsu-icon wsu-i-map-location"></span>
 				<?php echo esc_html( $pin[0] ); ?>
 			</button>
 			<?php endforeach; ?>

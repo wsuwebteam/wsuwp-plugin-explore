@@ -277,13 +277,21 @@ code {
   .wsu-explore-panel-group__map__pin {
     position: absolute;
     font-size: 0;
-    background-color: red;
     width: 10px;
     height: 10px;
     cursor: pointer;
     border-radius: 50%;
     top: 0;
-    left: 0; }
+    left: 0;
+    border: none;
+    outline: none;
+    background: none; }
+    .wsu-explore-panel-group__map__pin span {
+      padding: 3px;
+      font-size: 1rem;
+      color: #A60F2D;
+      background-color: #fff;
+      border-radius: 4px; }
 
 .swiper-container-horizontal > .swiper-scrollbar {
   position: absolute;
@@ -326,6 +334,10 @@ code {
 
 .swiper-button-next:after, .swiper-button-prev:after {
   font-size: 2vw; }
+
+.swiper-pagination-bullet {
+  left: 30vw;
+  right: 30vw; }
 
 /**
                         // //

@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-	"start": "wp-scripts start assets/src/editor.js assets/src/public.js --output-path=assets/dist/",
-	"build": "wp-scripts build assets/src/editor.js assets/src/public.js --output-path=assets/dist/"
+    "start": "wp-scripts start assets/src/editor.js assets/src/public.js --output-path=assets/dist/",
+    "build": "wp-scripts build assets/src/editor.js assets/src/public.js --output-path=assets/dist/"
   },
   "author": "",
   "license": "ISC",
