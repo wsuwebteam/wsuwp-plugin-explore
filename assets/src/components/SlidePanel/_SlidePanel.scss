@@ -1,0 +1,48 @@
+@import '../../scss/all-the-things';
+
+.wsuwp-explore-control__slide-panel {
+
+	padding: 2rem 1rem 1rem;
+	width: 250px;
+	border-radius: 3px;
+	background-color: get-color('white');
+	border: 1px solid get-color('blue-wp');
+	position: relative;
+
+	&__wrapper {
+		position: absolute;
+		top: 100%;
+		width: 0;
+		overflow: hidden;
+		transition: width 300ms;
+		z-index: 100;
+		
+
+		&.active {
+			width: 250px;
+		}
+
+		&.slide-panel-position-above {
+			top: auto;
+			bottom: 100%;
+		}
+
+		&.slide-panel-direction-left {
+			left: auto;
+			right: 0;
+		}
+
+	}
+
+	&__close { 
+		position: absolute;
+		top: 0.5rem;
+		right: 0.5rem;
+		background-color: transparent;
+		outline: none;
+		border: none;
+		color: get-color('gray-darkest');
+		font-size: get-font( 'smaller' );
+		cursor: pointer;
+	}
+}

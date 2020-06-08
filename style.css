@@ -1,0 +1,439 @@
+/*
+Theme Name: Explore
+Theme URI: #
+Author: WSU University Communications, Nic Ford
+Author URI: https://web.wsu.edu/
+Description: Theme to style sequence slideshows.
+Version: 0.0.1
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+* {
+	font-family: "Montserrat", sans-serif;
+	line-height: 1.7;
+	font-size: 16px;
+}
+
+.wsu-c-content {
+	padding: 0;
+}
+
+/* Style the Sequence container */
+#sequence {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	max-width: 100%;
+	overflow: hidden;
+	margin: 0 auto;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+.row {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.row--vac {
+	justify-content: center;
+	align-items: center;
+}
+
+.column {
+	width: 100%;
+}
+
+.column-4 {
+	width: 33.33%;
+}
+
+.column-6 {
+	width: 50%;
+}
+
+.column-8 {
+	width: 66.66%;
+}
+
+.content-goes-here {
+	padding: 0 20px;
+}
+
+.content-goes-here > img {
+	margin-top: 20px;
+}
+
+/* Reset */
+
+#sequence .seq-canvas,
+#sequence .seq-canvas > * {
+	/* margin: 0;
+	padding: 0;
+	list-style: none; */
+}
+
+/* Make the canvas the same dimensions as the container and prevent lines from
+	 wrapping so each step can sit side-by-side */
+
+#sequence .seq-canvas {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	white-space: nowrap;
+	font-size: 0;
+}
+
+/* Make the steps the same size as the container and sit side-by-side */
+
+#sequence .seq-canvas > * {
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	height: 100%;
+	white-space: normal;
+}
+
+/* Used to vertically center align the .content element */
+
+#sequence .seq-canvas > li:before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/* Vertically center align the .content element */
+
+#sequence .content {
+	/* display: inline-block;
+	vertical-align: middle;
+	margin: 0 4%;
+	font-size: 16px;
+	width: 100%; */
+}
+
+ul.seq-canvas li {
+	background-size: cover;
+	background-repeat: none;
+}
+
+ul.seq-canvas li {
+	background-size: auto;
+	background-color: hsl(0, 0%, 95%);
+	background-image: url('images/plus-pattern.png');
+	background-repeat: repeat;
+	box-shadow: inset 0 0 200px #0000007a;
+}
+
+ul.seq-canvas li.pattern--gray {
+	background-color: hsl(0, 0%, 20%);
+}
+
+ul.seq-canvas li.pattern--crimson {
+	background-color: #a60f2d;
+	/* Dark Crimson */
+}
+
+
+
+
+p {
+	font-size: 16px;
+}
+
+.video-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 1;
+	object-fit: cover;
+}
+
+.step {
+	position: relative;
+}
+
+.content {
+	position: absolute;
+	z-index: 2;
+	width: 80vw;
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0 auto;
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+.content--columns {
+	max-width: 1200px;
+	max-height: 80vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+	align-items: center;
+}
+
+.content--single-column {
+	max-width: 800px;
+	max-height: 80vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.content-welcome .content,
+.content-gallery .content{
+	background-color: transparent;
+	overflow: hidden;
+}
+
+.content-welcome .content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.wsu-c-content .hero-title {
+	font-size: 9vw;
+	text-transform: uppercase;
+	text-align: left;
+	font-weight: 900;
+	line-height: 100%;
+	color: hsl(0, 0%, 100%);
+}
+
+.wsu-c-content .hero-title span {
+	font-size: 50%;
+	font-weight: 100;
+	display: block;
+	text-transform: initial;
+}
+
+.content--has-background {
+	background-color: white;
+	color: hsl(0, 0%, 10%);
+}
+
+.content--has-background::after {
+	content: "";
+	position: absolute;
+	bottom: 25px;
+	right: 25px;
+	background-color: #fff;
+	width: 50px;
+	height: 50px;
+	transform: rotate(45deg);
+}
+
+
+.talking-head-container {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	z-index: 10;
+}
+
+
+.talking-head-container video {
+	width: 480px;
+	/* position: absolute; */
+	z-index: 11;
+	bottom: 0;
+	right: 0;
+
+
+}
+
+
+/* .offset3 {
+	top: 0;
+	right: 0;
+	z-index: 11;
+	position: absolute;
+	height: 480px;
+} */
+
+
+.multimedia-controls {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 9;
+	width: 100%;
+
+	background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.8));
+	display: flex;
+}
+
+.multimedia-controls .wsu-icon {
+	font-size: 36px;
+	color: white;
+}
+
+.multimedia-controls .wsu-icon:hover,
+.multimedia-controls .wsu-icon:focus {
+	color: white;
+}
+
+
+.timeline {
+	width: 50vw;
+	position: fixed;
+	bottom: 40px;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 5px;
+	background-color: hsl(0, 0%, 95%);
+	z-index: 999;
+	border-radius: 2.5px;
+	box-shadow: inset 0 0 2px hsl(0, 0%, 80%);
+}
+
+.timeline-progress {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 10px;
+	height: 5px;
+	border-radius: 5px;
+	background-color: #ca1237;
+	transition: 250ms ease-out width;
+	/* border: 2px solid hsl(0, 0%, 10%); */
+}
+
+.story-controls {
+	position: fixed;
+	top: 50%;
+	width: 100%;
+	z-index: 2;
+}
+
+.story-controls .seq-next,
+.story-controls .seq-prev {
+	position: absolute;
+	background-color: hsl(0, 0%, 20%);
+	border: none;
+	color: white;
+	font-size: 18px;
+	padding: 20px;
+	border-radius: inherit;
+	transition: 300ms ease all;
+}
+
+.story-controls .seq-next:hover,
+.story-controls .seq-prev:hover {
+	background-color: hsl(0, 0%, 10%);
+	outline: none;
+	cursor: pointer;
+}
+
+.story-controls .seq-next:focus,
+.story-controls .seq-prev:focus {
+	outline: none;
+}
+
+.story-controls .seq-next .wsu-icon,
+.story-controls .seq-prev .wsu-icon {
+	padding: 0;
+}
+
+
+.story-controls .seq-next {
+	right: 0;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+}
+
+.story-controls .seq-next:focus {
+	box-shadow: inset -2px 0 0 #ca1237;
+}
+
+.story-controls .seq-prev {
+	left: 0;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+}
+
+.story-controls .seq-prev:focus {
+	box-shadow: inset 2px 0 0 #ca1237;
+}
+
+.story-controls_label {
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.gallery {
+	width: 100%;
+}
+.gallery-screen {
+	overflow: hidden;
+}
+
+img {
+	width: 100%;
+}
+
+
+.gallery-screen img,
+.gallery-item img {
+	object-fit: cover;
+	object-position: 50% 50%;
+	transition: 300ms ease all;
+}
+
+.gallery-screen img {
+	width: 100%;
+	max-height: 600px;
+}
+
+.gallery-item img {
+	width: 100%;
+	height: 100%;
+}
+
+.gallery-item {
+	width: 25%;
+	margin-right: 10px;
+	overflow: hidden;
+	position: relative;
+}
+
+.gallery-item:hover {
+	cursor: pointer;
+}
+
+.gallery-item::after {
+	content: "\F120";
+	font-family: wsu-icons !important;
+	background: rgba(0, 0, 0, 0.8);
+	height: 100%;
+	width: 100%;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	transition: 300ms ease all;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 18px;
+	-webkit-font-smoothing: antialiased;
+}
+
+.gallery-item:hover::after {
+	opacity: 1;
+}
+
+.gallery-item:last-child {
+	margin-right: 0;
+}
+
+.gallery-item-container {
+	display: flex;
+
+}

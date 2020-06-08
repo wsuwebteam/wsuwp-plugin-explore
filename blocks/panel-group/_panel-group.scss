@@ -1,0 +1,105 @@
+@import '~@wsu/build-tools/scss/all-the-things.scss';
+
+.wsu-explore-panel-group {
+	
+	&__wrapper {
+		position: relative;
+		width: 100%;
+		height: 100vh;
+		max-width: 100%;
+		overflow: hidden;
+	}
+
+	&__map {
+		width: 80px;
+		height: 80px;
+		transition: width 200ms, height 200ms;
+		cursor: pointer;
+
+		&__wrapper {
+			position: absolute;
+			background-color: #000;
+			z-index: 10;
+			top: 20px;
+			left: 20px;
+			border: 2px solid color(gray,20);
+			border-radius: 3px;
+
+			&.active {
+
+				.wsu-explore-panel-group__map {
+					width: 500px;
+					height: 500px;
+				}
+
+			}
+		}
+
+		img {
+			object-fit: cover;
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-position: 50% 50%;
+		}
+
+		&__pin {
+			position: absolute;
+			font-size: 0;
+			background-color: red;
+			width: 10px;
+			height: 10px;
+			cursor: pointer;
+			border-radius: 50%;
+			top: 0;
+			left: 0;
+		}
+	}
+}
+
+.swiper-container-horizontal > .swiper-scrollbar {
+    position: absolute;
+	left: 30vw;
+	right: 30vw;
+    bottom: 2rem;
+    z-index: 50;
+    height: 5px;
+	width: auto;
+	overflow: hidden;
+}
+.swiper-pagination-bullet,
+.swiper-scrollbar {
+    background: #fff;
+}
+.swiper-pagination-bullet-active,
+.swiper-scrollbar-drag {
+    background: color( primary, light )
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+	padding: 0 2rem;
+	background-color: color(gray,75);
+	box-shadow: inset 0px 0px 9px rgba(0,0,0,0.5);
+	border: 1px solid color(gray,60);
+	color: color(gray,5);
+	height: 70px;
+	margin-top: -35px;
+	box-sizing: border-box;
+}
+
+.swiper-button-prev {
+	left: 0;
+	border-radius: 0 6px 6px 0;
+	border-left: none;
+}
+
+.swiper-button-next {
+	right: 0;
+	border-radius: 6px 0 0 6px;
+	border-right: none;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 2vw;
+}

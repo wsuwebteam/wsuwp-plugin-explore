@@ -1,0 +1,20 @@
+@import '../../scss/all-the-things';
+
+.wsuwp-explore-control__background {
+
+	background-color: transparent;
+	outline: none;
+	border: none;
+	color: get-color('white');
+	font-size: get-font( 'smaller' );
+	cursor: pointer;
+	
+	&__wrapper {
+		font-family: $editor-font-family;
+		position: relative;
+	}
+
+	.wsu-icon {
+		margin-right: 0.5rem;
+	}
+}

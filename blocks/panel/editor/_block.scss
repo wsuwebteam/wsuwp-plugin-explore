@@ -1,0 +1,14 @@
+@import '~@wsu/build-tools/scss/all-the-things.scss';
+
+.wsuwp-explore-panel {
+
+	min-height: 500px;
+	display: flex;
+	flex-direction: column;  
+
+	&__wrapper {
+		background-color: color(gray, 90);
+		background-size: cover;
+		background-position: center; 
+	}
+}

@@ -1,0 +1,21 @@
+@import '../../scss/all-the-things';
+
+.wsuwp-explore-control__add-video {
+
+	font-family: $editor-font-family;
+	background-color: transparent;
+	outline: none;
+	border: none;
+	color: get-color('white');
+	font-size: get-font( 'smaller' );
+	cursor: pointer;
+
+	.wsu-icon {
+		margin-right: 0.5rem;
+	}
+
+	&__wrapper {
+		position: relative;
+		margin-left: 0.5rem;
+	}
+}

@@ -1,0 +1,44 @@
+{
+  "name": "wsuwp-theme-sequence",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+	"start": "wp-scripts start assets/src/editor.js assets/src/public.js --output-path=assets/dist/",
+	"build": "wp-scripts build assets/src/editor.js assets/src/public.js --output-path=assets/dist/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "sequencejs": "^2.0.0",
+    "swiper": "^5.3.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "@wordpress/block-editor": "^3.5.0",
+    "@wordpress/blocks": "^6.10.0",
+    "@wordpress/scripts": "^8.0.1",
+    "@wsu/build-tools": "git+https://github.com/wsuwebteam/wsu-build-tools.git",
+    "autoprefixer": "^9.7.6",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "css-loader": "^3.5.3",
+    "eslint": "^5.16.0",
+    "eslint-config-wordpress": "^2.0.0",
+    "eslint-plugin-jest": "^22.5.1",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
+    "lodash.assign": "^4.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-cli": "^7.1.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0"
+  }
+}

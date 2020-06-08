@@ -1,0 +1,24 @@
+@import '~@wsu/build-tools/scss/all-the-things.scss';
+
+
+.wsu-explore-panel-group {
+
+	&__controls {
+		background-color: color(gray,5);
+		padding: 1rem;
+		box-sizing: border-box;
+		border-radius: 6px;
+		margin-bottom: 2rme;
+	}
+
+	&__map {
+		width: 500px;
+		height: 500px;
+		background-color: color(gray,90);
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		position: relative;
+	}
+
+}
