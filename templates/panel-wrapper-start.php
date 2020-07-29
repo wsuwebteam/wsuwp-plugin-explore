@@ -1,0 +1,2 @@
+<div class="wsu-explore-panel__wrapper swiper-slide <?php if ( ! empty( $atts['wrapper_class'] ) ) : ?> <?php echo esc_attr( $atts['wrapper_class'] ); ?><?php endif; ?>" >
+	<div class="wsu-explore-panel" >

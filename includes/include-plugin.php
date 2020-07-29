@@ -3,7 +3,7 @@
 
 class Explore {
 
-	protected static $version = '0.0.1';
+	protected static $version = '0.0.2';
 
 
 	public static function get( $property ) {
@@ -27,6 +27,7 @@ class Explore {
 
 		require_once __DIR__ . '/include-blocks.php';
 		require_once __DIR__ . '/include-post-type-story.php';
+		require_once __DIR__ . '/include-templates.php';
 
 	}
 

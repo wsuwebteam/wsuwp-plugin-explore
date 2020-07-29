@@ -20,6 +20,5 @@
 		<?php elseif ( ! empty( $atts['img_src'] ) ) : ?>
 		<img class="wsu-explore-panel__background__image" src="<?php echo esc_url( $atts['img_src'] ); ?>" />
 		<?php endif; ?>
-		
 	</div>
 </div>

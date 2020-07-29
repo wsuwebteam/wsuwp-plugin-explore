@@ -11,6 +11,8 @@ class Blocks {
 		require_once $base_dir . 'classes/class-block.php';
 		require_once $base_dir . 'blocks/panel/panel.php';
 		require_once $base_dir . 'blocks/panel-group/panel-group.php';
+		require_once $base_dir . 'blocks/panel-start/panel-start.php';
+		require_once $base_dir . 'blocks/panel-image/panel-image.php';
 		//require_once $block_dir . 'panel-title/panel-title.php';
 		//require_once $block_dir . 'panel-group/panel-group.php';
 		//require_once $block_dir . 'panel-subtitle/panel-subtitle.php';
@@ -58,6 +60,8 @@ class Blocks {
 		$blocks = array(
 			'wsuwp-explore/panel-group'    => 'Block_Panel_Group',
 			'wsuwp-explore/panel'          => 'Block_Panel',
+			'wsuwp-explore/panel-start'    => 'Block_Panel_Start',
+			'wsuwp-explore/panel-image'    => 'Block_Panel_Image',
 			//'wsuwp-explore/panel-title'    => 'Block_Panel_Title',
 			//'wsuwp-explore/panel-group'    => 'Block_Panel_Group',
 			//'wsuwp-explore/panel-subtitle' => 'Block_Panel_Subtitle',

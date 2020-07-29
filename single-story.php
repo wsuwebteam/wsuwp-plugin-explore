@@ -8,9 +8,9 @@
 	<link rel='stylesheet' id='wsu_design_system_normalize-css'  href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css?ver=0.6.0' type='text/css' media='all' />
 	<link rel="stylesheet" href="https://cdn.web.wsu.edu/designsystem/1.x/build/dist/wsu-design-system.bundle.dist.css">
 	<link rel="stylesheet" href="https://cdn.web.wsu.edu/designsystem/1.x/wsu-icons/dist/wsu-icons.bundle.css">
-	<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 	<link rel="stylesheet" href="<?php echo Explore::get('url') . '/assets/dist/public.css?v=' . filemtime( Explore::get('directory') . '/assets/dist/public.css' ); ?>">
-	<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<script src="https://player.vimeo.com/api/player.js"></script>
 </head>
 <body>
