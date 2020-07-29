@@ -113,6 +113,7 @@ var wsu_explore = /*#__PURE__*/function () {
     this.container = document.getElementById(container_id);
     this.swiper_container_selector = swiper_container_selector;
     this.init_swiper();
+    this.init_events();
     this.init_map();
   }
 
@@ -143,14 +144,30 @@ var wsu_explore = /*#__PURE__*/function () {
       });
     }
   }, {
+    key: "init_events",
+    value: function init_events() {
+      var _this2 = this;
+
+      document.querySelectorAll('.wsu-explore-panel__next-slide').forEach(function (item) {
+        item.addEventListener('click', function (event) {
+          _this2.swiper.slideNext();
+        });
+      });
+      document.querySelectorAll('.wsu-explore-panel__pause-background').forEach(function (item) {
+        item.addEventListener('click', function (event) {
+          _this2.pause_background_video();
+        });
+      });
+    }
+  }, {
     key: "init_map",
     value: function init_map() {
-      var _this2 = this;
+      var _this3 = this;
 
       var map = document.querySelector('.wsu-explore-panel-group__map__wrapper');
       document.querySelectorAll('.wsu-explore-panel-group__map__pin').forEach(function (item) {
         item.addEventListener('click', function (event) {
-          _this2.swiper.slideTo(item.dataset.slide);
+          _this3.swiper.slideTo(item.dataset.slide);
         });
       });
       map.addEventListener('click', function (event) {
@@ -160,6 +177,12 @@ var wsu_explore = /*#__PURE__*/function () {
           map.classList.add('active');
         }
       });
+    }
+  }, {
+    key: "pause_background_video",
+    value: function pause_background_video() {
+      var slide_index = this.swiper.activeIndex;
+      this.do_background_video(slide_index, 'pause');
     }
   }, {
     key: "slide_changed",

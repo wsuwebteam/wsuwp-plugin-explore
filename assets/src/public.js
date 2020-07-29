@@ -9,6 +9,8 @@ class wsu_explore {
 
 		this.init_swiper();
 
+		this.init_events();
+
 		this.init_map();
 	}
 
@@ -39,6 +41,20 @@ class wsu_explore {
 
 	}
 
+	init_events() {
+		document.querySelectorAll('.wsu-explore-panel__next-slide').forEach(item => {
+			item.addEventListener('click', event => {
+				this.swiper.slideNext();
+			})
+		});
+
+		document.querySelectorAll('.wsu-explore-panel__pause-background').forEach(item => {
+			item.addEventListener('click', event => {
+				this.pause_background_video();
+			})
+		});
+	}
+
 	init_map() {
 
 		let map = document.querySelector('.wsu-explore-panel-group__map__wrapper');
@@ -58,6 +74,14 @@ class wsu_explore {
 				map.classList.add('active');
 			}
 		})
+
+	}
+
+	pause_background_video() {
+
+		let slide_index = this.swiper.activeIndex;
+
+		this.do_background_video( slide_index, 'pause' );
 
 	}
 

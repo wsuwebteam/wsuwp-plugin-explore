@@ -1,0 +1,16 @@
+.wsu-explore-panel {
+
+	&__container {
+		min-height: 500px;
+		display: flex;
+		flex-direction: column;
+		z-index: 2;
+		position: relative;
+	}
+
+	&__wrapper {
+		background-color:#000;
+		position: relative;
+	}
+
+}

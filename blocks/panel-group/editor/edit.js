@@ -155,8 +155,8 @@ const panelGroupEdit = ( {className, attributes, setAttributes  } ) => {
 					</div>
 					<div className="wsu-explore-panel-group__panels">
 					<InnerBlocks 
-						allowedBlocks={ [ 'wsuwp-explore/panel' ] }
-						template={ [ [ 'wsuwp-explore/panel', {} ] ] }
+						allowedBlocks={ [ 'wsuwp-explore/panel-image','wsuwp-explore/panel-start' ] }
+						template={ [ [ 'wsuwp-explore/panel-start', {} ] ] } 
 					/>
 					</div>
 				</div>
