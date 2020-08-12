@@ -11,6 +11,14 @@ registerBlockType(
     	icon: 'universal-access-alt',
 		category: 'layout',
 		attributes: {
+			title: {
+				type: 'string',
+				default: '',
+			},
+			caption: {
+				type: 'string',
+				default: '',
+			},
 			backgroundImgTitle: {
 				type: 'string',
 				default: '',
@@ -40,6 +48,18 @@ registerBlockType(
 					width: 1070,
 					height: 500
 				}
+			},
+			narratorAudioSrc: {
+				type: 'string',
+				default: '',
+			},
+			narrationCaption: {
+				type: 'string',
+				default: '',
+			},
+			narratorName: {
+				type: 'string',
+				default: '',
 			},
 		},
 		edit,

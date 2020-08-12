@@ -10,11 +10,7 @@ class Block_Panel_Group extends Block {
 
 	public static function render( $atts, $content ) {
 
-		ob_start();
-
 		include __DIR__ . '/templates/template.php';
-
-		return ob_get_clean();
 
 	}
 

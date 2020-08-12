@@ -77,6 +77,16 @@
 	width: auto;
 	overflow: hidden;
 }
+
+@media screen and (max-width:1400px ) {
+	.swiper-container-horizontal > .swiper-scrollbar {
+		position: absolute;
+		left: 35vw;
+		right: 35vw;
+	}
+}
+
+
 .swiper-pagination-bullet,
 .swiper-scrollbar {
     background: #fff;
@@ -88,30 +98,67 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-	padding: 0 2rem;
-	background-color: color(gray,75);
-	box-shadow: inset 0px 0px 9px rgba(0,0,0,0.5);
-	border: 1px solid color(gray,60);
-	color: color(gray,5);
+	padding: 0 1rem;
+	background-color: #fff;
+	color: color(primary,base);
 	height: 70px;
 	margin-top: -35px;
 	box-sizing: border-box;
+	text-transform: uppercase;
+	font-size: 0.65rem;
+	top: 20%;
+	width: 150px;
+
+	&.swiper-button-disabled {
+		color: color(gray,60);
+	}
 }
+
+
 
 .swiper-button-prev {
 	left: 0;
-	border-radius: 0 6px 6px 0;
-	border-left: none;
 }
 
 .swiper-button-next {
 	right: 0;
-	border-radius: 6px 0 0 6px;
-	border-right: none;
 }
 
-.swiper-button-next:after, .swiper-button-prev:after {
-    font-size: 2vw;
+.swiper-button-label-next,
+.swiper-button-label-prev {
+	display: block;
+	font-weight: 600;
+}
+
+.swiper-button-next:after, 
+.swiper-button-prev:before {
+	font-family: 'wsu-icons';
+	font-size: 1rem;
+	display: inline-block;
+	margin: 0 0.5em;
+	flex-grow: 0;
+}
+
+.swiper-button-prev {
+	justify-content: flex-start;
+
+	&:before {
+		content:"\F106";
+	}
+	&:after {
+		display: none;
+	}
+}
+
+.swiper-button-next {
+	justify-content: flex-end;
+
+	&:before {
+		display: none;
+	}
+	&:after {
+		content:"\F108";
+	}
 }
 
 .swiper-pagination-bullet {

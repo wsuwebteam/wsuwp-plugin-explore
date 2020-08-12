@@ -113,8 +113,7 @@ var wsu_explore = /*#__PURE__*/function () {
     this.container = document.getElementById(container_id);
     this.swiper_container_selector = swiper_container_selector;
     this.init_swiper();
-    this.init_events();
-    this.init_map();
+    this.init_events(); //this.init_map();
   }
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(wsu_explore, [{
@@ -125,6 +124,7 @@ var wsu_explore = /*#__PURE__*/function () {
       this.swiper = new Swiper(this.swiper_container_selector, {
         // Optional parameters
         loop: false,
+        preventClicksPropagation: true,
         // If we need pagination
         pagination: {
           el: '.swiper-pagination'
@@ -142,6 +142,7 @@ var wsu_explore = /*#__PURE__*/function () {
       this.swiper.on('slideChangeTransitionEnd', function () {
         _this.slide_changed();
       });
+      this.update_nav();
     }
   }, {
     key: "init_events",
@@ -156,6 +157,21 @@ var wsu_explore = /*#__PURE__*/function () {
       document.querySelectorAll('.wsu-explore-panel__pause-background').forEach(function (item) {
         item.addEventListener('click', function (event) {
           _this2.pause_background_video();
+        });
+      });
+      document.querySelectorAll('.wsu-explore-audio-narrator__play-button').forEach(function (item) {
+        item.addEventListener('click', function (event) {
+          _this2.toggle_narrator(_this2.swiper.activeIndex, true);
+        });
+      });
+      document.querySelectorAll('.wsu-explore-panel-caption__description-toggle').forEach(function (item) {
+        item.addEventListener('click', function (event) {
+          _this2.toggle_caption();
+        });
+      });
+      document.querySelectorAll('.wsu-explore-narrator').forEach(function (item) {
+        item.addEventListener('click', function (event) {
+          event.stopPropagation();
         });
       });
     }
@@ -188,22 +204,94 @@ var wsu_explore = /*#__PURE__*/function () {
     key: "slide_changed",
     value: function slide_changed() {
       var active_slide_index = this.swiper.activeIndex;
-      this.do_narrator(this.swiper.activeIndex, 'play');
-      this.do_narrator(this.swiper.previousIndex, 'pause');
+
+      if (this.swiper.activeIndex - this.swiper.previousIndex > 0) {
+        this.play_narrator(this.swiper.activeIndex);
+      }
+
+      this.pause_narrator(this.swiper.previousIndex);
       this.do_background_video(this.swiper.activeIndex, 'play');
       this.do_background_video(this.swiper.previousIndex, 'pause');
+      this.update_nav();
+    }
+  }, {
+    key: "update_nav",
+    value: function update_nav() {
+      var prevSlideIndex = this.swiper.activeIndex - 1;
+      var nextSlideIndex = this.swiper.activeIndex + 1;
+      var prevSlideLabel = 0 > prevSlideIndex ? 'Go Cougs' : this.swiper.slides[prevSlideIndex].dataset.title;
+      var nextSlideLabel = nextSlideIndex > this.swiper.slides.length - 1 ? 'Go Cougs' : this.swiper.slides[nextSlideIndex].dataset.title;
+      var nextSlideControl = document.querySelector('.swiper-button-label-next');
+      var prevSlideControl = document.querySelector('.swiper-button-label-prev');
+      nextSlideControl.innerHTML = nextSlideLabel;
+      prevSlideControl.innerHTML = prevSlideLabel;
     }
   }, {
     key: "get_narrator",
     value: function get_narrator(slide_index) {
       var slide = this.swiper.slides[slide_index];
-      return slide.querySelector('.wsu-explore-panel__narrator');
+      return slide.querySelector('.wsu-explore-narrator');
     }
   }, {
     key: "get_background_video",
     value: function get_background_video(slide_index) {
       var slide = this.swiper.slides[slide_index];
       return slide.querySelector('.wsu-explore-panel__background__video');
+    }
+  }, {
+    key: "get_caption",
+    value: function get_caption(slide_index) {
+      var slide = this.swiper.slides[slide_index];
+      return slide.querySelector('.wsu-explore-panel-caption');
+    }
+  }, {
+    key: "show_caption",
+    value: function show_caption(caption) {
+      caption = caption ? caption : this.get_caption(this.swiper.activeIndex);
+
+      if (caption) {
+        caption.classList.add('wsu-explore-panel-caption--show-description');
+        caption.classList.remove('wsu-explore-panel-caption--hide-description');
+      }
+    }
+  }, {
+    key: "hide_caption",
+    value: function hide_caption(caption) {
+      caption = caption ? caption : this.get_caption(this.swiper.activeIndex);
+
+      if (caption) {
+        caption.classList.add('wsu-explore-panel-caption--hide-description');
+        caption.classList.remove('wsu-explore-panel-caption--show-description');
+      }
+    }
+  }, {
+    key: "toggle_caption",
+    value: function toggle_caption() {
+      var slide_index = this.swiper.activeIndex;
+      var caption = this.get_caption(slide_index);
+
+      if (caption) {
+        if (caption.classList.contains('wsu-explore-panel-caption--show-description')) {
+          this.hide_caption(caption);
+        } else {
+          this.show_caption(caption);
+        }
+      }
+    }
+  }, {
+    key: "toggle_narrator",
+    value: function toggle_narrator(slideIndex, showCaption) {
+      var narrator = this.get_narrator(slideIndex);
+
+      if (narrator.classList.contains('wsu-explore-narrator--paused')) {
+        this.play_narrator(slideIndex);
+      } else {
+        this.pause_narrator(slideIndex);
+
+        if (showCaption) {
+          this.show_caption(this.get_caption(slideIndex));
+        }
+      }
     }
   }, {
     key: "do_narrator",
@@ -226,6 +314,64 @@ var wsu_explore = /*#__PURE__*/function () {
             }
           } catch (err) {
             console.log('Error with Vimeo Player');
+          }
+        } else if (narrator.classList.contains('wsu-explore-audio-narrator')) {
+          if ('toggle' == action) {
+            action = narrator.classList.contains('wsu-explore-audio-narrator--paused') ? 'play' : 'pause';
+          }
+
+          try {
+            var _player = narrator.querySelector('.wsu-explore-audio-narrator__player');
+
+            switch (action) {
+              case 'play':
+                _player.play();
+
+                narrator.classList.remove('wsu-explore-audio-narrator--paused');
+                break;
+
+              case 'pause':
+                _player.pause();
+
+                narrator.classList.add('wsu-explore-audio-narrator--paused');
+                break;
+            }
+          } catch (err) {
+            console.log('Error with Audio Player');
+          }
+        }
+      }
+    }
+  }, {
+    key: "pause_narrator",
+    value: function pause_narrator(slideIndex, callback) {
+      var narrator = this.get_narrator(slideIndex);
+
+      if (narrator) {
+        if (narrator.classList.contains('wsu-explore-audio-narrator')) {
+          try {
+            var player = narrator.querySelector('.wsu-explore-audio-narrator__player');
+            player.pause();
+            narrator.classList.add('wsu-explore-narrator--paused');
+          } catch (err) {
+            console.log('Error with Audio Player');
+          }
+        }
+      }
+    }
+  }, {
+    key: "play_narrator",
+    value: function play_narrator(slideIndex, callback) {
+      var narrator = this.get_narrator(slideIndex);
+
+      if (narrator) {
+        if (narrator.classList.contains('wsu-explore-audio-narrator')) {
+          try {
+            var player = narrator.querySelector('.wsu-explore-audio-narrator__player');
+            player.play();
+            narrator.classList.remove('wsu-explore-narrator--paused');
+          } catch (err) {
+            console.log('Error with Audio Player');
           }
         }
       }

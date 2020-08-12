@@ -7,16 +7,18 @@ class Blocks {
 	public function __construct() {
 
 		$base_dir = Explore::get( 'directory' );
+		$block_component_dir = Explore::get( 'directory' ) . 'packages/block-components/';
 
 		require_once $base_dir . 'classes/class-block.php';
 		require_once $base_dir . 'blocks/panel/panel.php';
 		require_once $base_dir . 'blocks/panel-group/panel-group.php';
 		require_once $base_dir . 'blocks/panel-start/panel-start.php';
 		require_once $base_dir . 'blocks/panel-image/panel-image.php';
-		//require_once $block_dir . 'panel-title/panel-title.php';
-		//require_once $block_dir . 'panel-group/panel-group.php';
-		//require_once $block_dir . 'panel-subtitle/panel-subtitle.php';
-		//require_once $block_dir . 'panel-caption/panel-caption.php';
+
+		require_once $block_component_dir . 'audio-narrator/audio-narrator.php';
+		require_once $block_component_dir . 'panel-footer/panel-footer.php';
+		require_once $block_component_dir . 'panel-caption/panel-caption.php';
+
 	}
 
 	public function init() {

@@ -24,9 +24,23 @@ import PanelCaption from '../../../assets/src/components/PanelCaption/panel-capt
 
 const PanelImage = ( {className, attributes, setAttributes  } ) => {
 
-	return (
+	return ( 
 		<>
 			<InspectorControls>
+			<PanelBody title="General" initialOpen={false}>
+					<TextControl
+						label="Title"
+						value={attributes.title}
+						onChange={(title) => setAttributes({ title })}
+						placeholder={'Enter image title text here.'}
+					/>
+					<TextControl
+						label="Caption"
+						value={attributes.caption}
+						onChange={(caption) => setAttributes({ caption })}
+						placeholder={'Enter image caption text here.'}
+					/>
+				</PanelBody>
 				<PanelBody title="Background" initialOpen={false}>
 					<TextControl
 						label="Title"
@@ -36,8 +50,8 @@ const PanelImage = ( {className, attributes, setAttributes  } ) => {
 					/>
 					<TextControl
 						label="Caption"
-						value={attributes.backgroundImgCaption}
-						onChange={(backgroundImgCaption) => setAttributes({ backgroundImgCaption })}
+						value={attributes.backgroundCaption}
+						onChange={(backgroundCaption) => setAttributes({ backgroundCaption })}
 						placeholder={'Enter image caption text here.'}
 					/>
 					{ attributes.backgroundImgSrc &&
@@ -66,6 +80,26 @@ const PanelImage = ( {className, attributes, setAttributes  } ) => {
 						/>
 					</MediaUploadCheck>
 				</PanelBody>
+				<PanelBody title="Narration" initialOpen={false}>
+						<TextControl
+							label="Narrator Name"
+							value={attributes.narratorName}
+							onChange={( narratorName ) => setAttributes( {narratorName} )}
+							placeholder={'Enter audio url here.'}
+						/>
+						<TextControl
+							label="Audio URL"
+							value={attributes.narratorAudioSrc}
+							onChange={( url ) => setAttributes( { narratorAudioSrc:url } )}
+							placeholder={'Enter audio url here.'}
+						/>
+						<TextControl
+							label="Narration Caption"
+							value={attributes.narrationCaption}
+							onChange={( narrationCaption ) => setAttributes( { narrationCaption } )}
+							placeholder={'Enter audio url here.'}
+						/>
+					</PanelBody>
 			</InspectorControls>
 			<div className="wsu-explore-panel__wrapper wsu-explore-panel--image" >
 				<div 

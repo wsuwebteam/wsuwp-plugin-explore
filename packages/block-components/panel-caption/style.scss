@@ -1,0 +1,67 @@
+.wsu-explore-panel-caption {
+	position: relative;
+    background: rgba(0, 0, 0, 0.9);
+    width: 27%;
+    flex-grow: 0;
+    padding: 1rem 3rem 2rem;
+    box-sizing: border-box;
+    z-index: 10;
+    margin: 1%;
+	color: #eee;
+	border-radius: 2px;
+
+	&__title {
+		font-size: 1.75rem;
+		margin-top: 0;
+		display: flex;
+		margin-bottom: 0.25em;
+		align-items: center;
+	}
+	
+	&__description {
+		font-size: 0.85rem;
+		padding-bottom: 1.5em;
+		padding-right: 0.5rem;
+		max-height: 45vh;
+		overflow-y: auto;
+	}
+
+	&__description-toggle {
+		font-size: 0;
+		display: flex;
+		margin-left: 1rem;
+		cursor: pointer;
+		width: 40px;
+		height: 40px;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+
+		&:hover {
+			background: #555;
+		}
+
+		&::before {
+			font-size: 1rem;
+		}
+	}
+
+	&--show-description {
+
+		.wsu-explore-panel-caption__description-toggle {
+			background: #555;
+		}
+	}
+}
+
+.wsu-explore-panel-caption--hide-description {
+	.wsu-explore-panel-caption__description {
+		display: none;
+	}
+}
+
+@media screen and (max-width:1400px ) {
+	.wsu-explore-panel-caption {
+		width: 32%;
+	}
+}
