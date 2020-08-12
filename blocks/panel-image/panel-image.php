@@ -8,7 +8,10 @@ class Block_Panel_Image extends Block {
 		'background_img_src'         => '',
 		'background_video_src'    => '',
 		'background_video_is_360' => false,
-		'audio_src'       => '',
+		'background_caption' => '',
+		'narrator_audio_src'       => '',
+		'narrator_name' => '',
+		'narration_caption' => '',
 		'webm_video_src'  => '',
 		'vimeo_video_src' => '',
 		'class_name'      => '',
@@ -18,11 +21,7 @@ class Block_Panel_Image extends Block {
 
 	public static function render( $atts, $content ) {
 
-		ob_start();
-
 		include __DIR__ . '/templates/default.php';
-
-		return ob_get_clean();
 
 	}
 

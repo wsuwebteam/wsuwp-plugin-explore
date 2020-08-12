@@ -1153,6 +1153,14 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('wsu
   icon: 'universal-access-alt',
   category: 'layout',
   attributes: {
+    title: {
+      type: 'string',
+      default: ''
+    },
+    caption: {
+      type: 'string',
+      default: ''
+    },
     backgroundImgTitle: {
       type: 'string',
       default: ''
@@ -1182,6 +1190,18 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])('wsu
         width: 1070,
         height: 500
       }
+    },
+    narratorAudioSrc: {
+      type: 'string',
+      default: ''
+    },
+    narrationCaption: {
+      type: 'string',
+      default: ''
+    },
+    narratorName: {
+      type: 'string',
+      default: ''
     }
   },
   edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -1229,6 +1249,27 @@ var PanelImage = function PanelImage(_ref) {
       attributes = _ref.attributes,
       setAttributes = _ref.setAttributes;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(InspectorControls, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(PanelBody, {
+    title: "General",
+    initialOpen: false
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl, {
+    label: "Title",
+    value: attributes.title,
+    onChange: function onChange(title) {
+      return setAttributes({
+        title: title
+      });
+    },
+    placeholder: 'Enter image title text here.'
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl, {
+    label: "Caption",
+    value: attributes.caption,
+    onChange: function onChange(caption) {
+      return setAttributes({
+        caption: caption
+      });
+    },
+    placeholder: 'Enter image caption text here.'
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(PanelBody, {
     title: "Background",
     initialOpen: false
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl, {
@@ -1242,10 +1283,10 @@ var PanelImage = function PanelImage(_ref) {
     placeholder: 'Enter image title text here.'
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl, {
     label: "Caption",
-    value: attributes.backgroundImgCaption,
-    onChange: function onChange(backgroundImgCaption) {
+    value: attributes.backgroundCaption,
+    onChange: function onChange(backgroundCaption) {
       return setAttributes({
-        backgroundImgCaption: backgroundImgCaption
+        backgroundCaption: backgroundCaption
       });
     },
     placeholder: 'Enter image caption text here.'
@@ -1278,7 +1319,37 @@ var PanelImage = function PanelImage(_ref) {
         onClick: open
       }, "Open Media Library"));
     }
-  })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(PanelBody, {
+    title: "Narration",
+    initialOpen: false
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl, {
+    label: "Narrator Name",
+    value: attributes.narratorName,
+    onChange: function onChange(narratorName) {
+      return setAttributes({
+        narratorName: narratorName
+      });
+    },
+    placeholder: 'Enter audio url here.'
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl, {
+    label: "Audio URL",
+    value: attributes.narratorAudioSrc,
+    onChange: function onChange(url) {
+      return setAttributes({
+        narratorAudioSrc: url
+      });
+    },
+    placeholder: 'Enter audio url here.'
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(TextControl, {
+    label: "Narration Caption",
+    value: attributes.narrationCaption,
+    onChange: function onChange(narrationCaption) {
+      return setAttributes({
+        narrationCaption: narrationCaption
+      });
+    },
+    placeholder: 'Enter audio url here.'
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "wsu-explore-panel__wrapper wsu-explore-panel--image"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "wsu-explore-panel__background",

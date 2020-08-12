@@ -24,7 +24,7 @@ class Block {
 	}
 
 
-	public static function render_block( $attributes, $content ) {
+	public static function render_block( $attributes = array(), $content = '', $echo = false ) {
 
 		$atts = array();
 
@@ -41,7 +41,19 @@ class Block {
 
 		$atts = shortcode_atts( static::$default_atts, $atts );
 
-		return static::render( $atts, $content );
+		if ( $echo ) {
+
+			static::render( $atts, $content );
+
+		} else {
+
+			ob_start();
+
+			static::render( $atts, $content );
+
+			return ob_get_clean();
+
+		}
 
 	}
 

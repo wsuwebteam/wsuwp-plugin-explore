@@ -1,6 +1,19 @@
 .wsu-explore-panel-start {
 	background-color: #000;
 
+	.wsu-c-button {
+
+		margin-bottom: 2rem;
+
+		&::after {
+			content:"\F108";
+			font-family: 'wsu-icons';
+			font-size: 0.7em;
+			display: inline-block;
+			margin-left: 1em;
+		}
+	}
+
 	.wsu-explore-panel {
 
 		&__container {
