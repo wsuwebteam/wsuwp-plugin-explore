@@ -137,7 +137,7 @@ class WsuMiniSlider {
 
 			this.play = 1;
 
-			let slideDelay = (typeof this.timing[ this.activeIndex ] === 'undefined') ? this.timing[ this.activeIndex ] : this.delay;
+			let slideDelay = (typeof this.timing[ this.activeIndex ] != 'undefined') ? this.timing[ this.activeIndex ] : this.delay;
 
 			slideDelay = ( this.remainingTime ) ? this.remainingTime : slideDelay;
 

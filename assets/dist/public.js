@@ -226,7 +226,7 @@ var WsuMiniSlider = /*#__PURE__*/function () {
       if (this.hasSlider) {
         this.playVideo(this.activeIndex);
         this.play = 1;
-        var slideDelay = typeof this.timing[this.activeIndex] === 'undefined' ? this.timing[this.activeIndex] : this.delay;
+        var slideDelay = typeof this.timing[this.activeIndex] != 'undefined' ? this.timing[this.activeIndex] : this.delay;
         slideDelay = this.remainingTime ? this.remainingTime : slideDelay;
         this.timer = setTimeout(function () {
           _this2.nextSlide();
