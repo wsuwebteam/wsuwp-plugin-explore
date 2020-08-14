@@ -6,6 +6,8 @@ class Block_Audio_Narrator extends Block {
 		'narrator_audio_src'  => '',
 		'narrator_image_src'  => '',
 		'narrator_name'  => '',
+		'narrator_title' => '',
+		'narrator_thumbnail' => '',
 		'narration_caption' => '',
 		'narration_title' => '',
 		'title' => '',

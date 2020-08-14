@@ -1,0 +1,1 @@
+export { default as AudioNarrator } from './audio-narrator';

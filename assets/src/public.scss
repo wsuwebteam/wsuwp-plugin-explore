@@ -1,6 +1,101 @@
 @import '../src/scss/partials/_panel.scss';
+@import '../src/scss/wsu-mini-slider.scss';
 @import '../../blocks/panel-group/_panel-group.scss';
-@import '../../blocks//panel-start/style.scss';
+@import '../../blocks/panel-start/style.scss';
+@import '../../blocks/panel-slider/style.scss';
+@import '../../blocks/panel-slide/style.scss';
 @import '../../packages/block-components/panel-caption/style.scss';
 @import '../../packages/block-components/panel-footer/style.scss';
 @import '../../packages/block-components/audio-narrator/style.scss';
+
+
+@media screen and ( max-width: 1000px ) {
+	.wsu-explore-panel__container {
+		min-height: 100vh;
+		height: auto;
+	}
+
+	.wsu-explore-panel__background {
+		height: 100vh;
+		overflow: hidden;
+	}
+
+	.wsu-explore-panel-group__wrapper {
+		min-height: 100vh;
+		height:auto;
+	}
+
+	.wsu-explore-background-slider {
+		height: 100vh;
+	}
+
+	.swiper-button-prev, .swiper-button-next {
+		padding: 0 1rem;
+		background-color: #fff;
+		color: #A60F2D;
+		height: 50px;
+		margin-top: -35px;
+		box-sizing: border-box;
+		text-transform: uppercase;
+		top: 50px;
+	}
+
+	.swiper-button-prev {
+		border-radius: 0 6px 6px 0;
+	}
+
+	.swiper-button-next {
+		border-radius: 6px 0 0 6px;
+	}
+
+	.wsu-explore-footer__options {
+		width: 45%;
+		position: absolute;
+		bottom: 100%;
+		right: 0;
+	}
+
+	.wsu-explore-audio-narrator {
+		border-top: none;
+		position: absolute;
+		padding-bottom: 0.5rem;
+		padding-top: 0.5rem;
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+		bottom: calc( 100% + 1rem );
+		left: 0;
+		background-color: rgba( 0,0,0,0.95);
+		border-radius: 20px;
+		max-width: 45%;
+	}
+
+	.wsu-explore-panel-caption {
+		width: 100%;
+	}
+
+	.wsu-explore-audio-narrator__profile-name {
+		display: none;
+	}
+
+	.wsu-explore-panel-start__title {
+		color: #fff !important;
+		margin: 60px 0 0.5em!important;
+		font-size: 2.5rem;
+		text-transform: uppercase;
+		text-shadow: 0px 1px 3px black;
+		text-align: center;
+		line-height: 1.2;
+	}
+
+	.wsu-explore-panel-start__caption {
+		color: #eee;
+		font-size: 0.9rem;
+		max-width: 500px;
+		margin: 0.5rem auto 0;
+		padding: 0 30px;
+		line-height: 1.3;
+		text-align: center;
+		text-shadow: 0px 1px 3px black;
+	}
+
+}

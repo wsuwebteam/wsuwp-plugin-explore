@@ -6,6 +6,8 @@ class Block_Panel_caption extends Block {
 		'narrator_audio_src'  => '',
 		'narration_caption' => '',
 		'narrator_name' => '',
+		'narrator_title' => '',
+		'narrator_thumbnail' => '',
 		'title' => '',
 		'caption' => '',
 		'wrapper_class' => 'wsu-explore-panel-caption swiper-no-swiping',
