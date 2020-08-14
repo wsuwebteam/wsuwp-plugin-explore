@@ -82,3 +82,12 @@
 	}
 
 }
+
+.wsu-c-mini-slider__slide--active {
+
+	.wsu-explore-image-frame__image {
+		width: 110% !important;
+			height: 110% !important;
+			transition: width 30s, height 30s;
+	}
+}

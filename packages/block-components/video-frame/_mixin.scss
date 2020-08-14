@@ -1,0 +1,26 @@
+@mixin explore-video-frame {
+	.wsu-explore-video-frame {
+		width: 100%;
+		position: relative;
+	}
+
+	.wsu-explore-video-frame__video {
+		position: absolute;
+		object-fit: cover;
+		display: block;
+		height: 56.25vw;
+		width: 100vw;
+		min-height: 100vh;
+		min-width: 177.77vh;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.wsu-explore-video-frame__control {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		z-index: 10;
+	}
+}

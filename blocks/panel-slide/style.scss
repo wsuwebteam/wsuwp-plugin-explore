@@ -1,0 +1,11 @@
+@import '../../packages/block-components/image-frame/mixin';
+@import '../../packages/block-components/video-frame/mixin';
+
+.wsu-explore-panel__slide {
+	display: flex;
+
+
+	@include explore-video-frame;
+
+	@include explore-image-frame;
+}

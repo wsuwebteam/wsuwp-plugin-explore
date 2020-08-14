@@ -1,0 +1,19 @@
+@mixin explore-image-frame {
+	.wsu-explore-image-frame {
+		width: 100%;
+		position: relative;
+	}
+
+	.wsu-explore-image-frame__image {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		object-fit: cover;
+		display: block;
+		height: 100%;
+		width: 100%;
+	}
+
+}

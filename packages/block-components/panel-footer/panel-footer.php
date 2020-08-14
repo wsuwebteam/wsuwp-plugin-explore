@@ -6,9 +6,12 @@ class Block_Panel_Footer extends Block {
 		'narrator_audio_src'  => '',
 		'narration_caption' => '',
 		'narrator_name' => '',
+		'narrator_title' => '',
+		'narrator_thumbnail' => '',
 		'title' => '',
 		'caption' => '',
 		'background_caption' => '',
+		'pager_id' => '',
 	);
 
 

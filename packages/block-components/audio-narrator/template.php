@@ -4,11 +4,14 @@
 		<i class="wsu-explore-icon explore-sound">Has Sound</i> 
 	</div>
 	<div class="wsu-explore-audio-narrator__profile">
+		<?php if ( ! empty( $atts['narrator_thumbnail'] ) ) : ?>
 		<div class="wsu-explore-audio-narrator__profile-image-frame">
-			<img src="https://source.unsplash.com/collection/895539" class="wsu-explore-audio-narrator__profile-image-frame" />
+			<img src="<?php echo esc_url( $atts['narrator_thumbnail'] ); ?>" class="wsu-explore-audio-narrator__profile-image-frame" />
 		</div>
+		<?php endif; ?>
 		<div class="wsu-explore-audio-narrator__profile-name">
 			<?php echo esc_html( $atts['narrator_name'] ); ?>
+			<span class="wsu-explore-audio-narrator__profile-title"><?php echo esc_html( $atts['narrator_title'] ); ?></span>
 		</div>
 	</div>
 	<audio controls class="wsu-explore-audio-narrator__player">

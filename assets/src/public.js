@@ -1,11 +1,14 @@
 import './public.scss';
 
+import WsuMiniSlider from './js/wsu-mini-slider';
+
 class wsu_explore {
 
 	constructor( container_id, swiper_container_selector ) {
 		this.container_id = container_id;
 		this.container = document.getElementById( container_id );
 		this.swiper_container_selector = swiper_container_selector;
+		this.wsu_mini_sliders = [];
 
 		this.init_swiper();
 
@@ -20,6 +23,7 @@ class wsu_explore {
 			// Optional parameters
 			loop: false,
 			preventClicksPropagation: true,
+			preventInteractionOnTransition: true,
 		
 			// If we need pagination
 			pagination: {
@@ -41,6 +45,22 @@ class wsu_explore {
 		this.swiper.on( 'slideChangeTransitionEnd', () => { this.slide_changed() } );
 
 		this.update_nav();
+
+		for ( let i = 0; i < this.swiper.slides.length; i++ ) {
+
+			let newSlider = new WsuMiniSlider(
+				'.wsu-c-mini-slider',
+				{
+					play: 1,
+				},
+				this.swiper.slides[i]
+			);
+			this.wsu_mini_sliders[i] = newSlider;
+
+		}
+
+
+		console.log( this.wsu_mini_sliders );
 
 	}
 
@@ -118,7 +138,47 @@ class wsu_explore {
 
 			this.play_narrator( this.swiper.activeIndex );
 
-		} 
+			try {
+
+				if ( this.wsu_mini_sliders[ active_slide_index ].hasSlider ) {
+
+					this.wsu_mini_sliders[ active_slide_index ].playSlides();
+
+				}
+
+				if ( this.wsu_mini_sliders[ this.swiper.previousIndex  ].hasSlider ) {
+	
+					this.wsu_mini_sliders[ this.swiper.previousIndex ].pauseAllVideo();
+	
+				}
+
+			}
+			catch(err) {
+				console.log('Could not Play Slides');
+			}
+
+		} else {
+
+			try {
+
+				if ( this.wsu_mini_sliders[ active_slide_index ].hasSlider ) {
+	
+					this.wsu_mini_sliders[ active_slide_index ].playVideo( false );
+	
+				}
+	
+				if ( this.wsu_mini_sliders[ this.swiper.previousIndex  ].hasSlider ) {
+	
+					this.wsu_mini_sliders[ this.swiper.previousIndex ].pauseAllVideo();
+	
+				}
+	
+			}
+			catch(err) {
+				console.log('Could not Play Slides');
+			}
+
+		}
 
 		this.pause_narrator( this.swiper.previousIndex );
 
