@@ -25,24 +25,18 @@ const AudioNarrator = ( { attributes, setAttributes } ) => {
 				label="Narrator Name"
 				value={attributes.narratorName}
 				onChange={( narratorName ) => setAttributes( {narratorName} )}
-				placeholder={'Enter audio url here.'}
+				placeholder={'Enter narrator name.'}
 			/>
 			<TextControl
 				label="Narrator Title"
 				value={attributes.narratorTitle}
 				onChange={( narratorTitle ) => setAttributes( {narratorTitle} )}
-				placeholder={'Enter audio url here.'}
+				placeholder={'Enter narrator title here'}
 			/>
 			<TextControl
 				label="Audio URL"
 				value={attributes.narratorAudioSrc}
 				onChange={( url ) => setAttributes( { narratorAudioSrc:url } )}
-				placeholder={'Enter audio url here.'}
-			/>
-			<TextControl
-				label="Narration Caption"
-				value={attributes.narrationCaption}
-				onChange={( narrationCaption ) => setAttributes( { narrationCaption } )}
 				placeholder={'Enter audio url here.'}
 			/>
 			<MediaUploadCheck>

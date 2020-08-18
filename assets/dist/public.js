@@ -387,6 +387,10 @@ var wsu_explore = /*#__PURE__*/function () {
         // And if we need scrollbar
         scrollbar: {
           el: '.swiper-scrollbar'
+        },
+        preloadImages: false,
+        lazy: {
+          loadPrevNext: true
         }
       });
       this.swiper.on('slideChangeTransitionEnd', function () {

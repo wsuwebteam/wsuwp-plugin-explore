@@ -16,6 +16,7 @@ class Blocks {
 		require_once $base_dir . 'blocks/panel-image/panel-image.php';
 		require_once $base_dir . 'blocks/panel-slider/panel-slider.php';
 		require_once $base_dir . 'blocks/panel-slide/panel-slide.php';
+		require_once $base_dir . 'blocks/panel-content/panel-content.php';
 
 		require_once $block_component_dir . 'audio-narrator/audio-narrator.php';
 		require_once $block_component_dir . 'panel-footer/panel-footer.php';
@@ -70,6 +71,7 @@ class Blocks {
 			'wsuwp-explore/panel-start'    => 'Block_Panel_Start',
 			'wsuwp-explore/panel-image'    => 'Block_Panel_Image',
 			'wsuwp-explore/panel-slider'    => 'Block_Panel_Slider',
+			'wsuwp-explore/panel-content'    => 'Block_Panel_Content',
 			'wsuwp-explore/panel-slide'    => 'Block_Panel_Slide',
 			//'wsuwp-explore/panel-title'    => 'Block_Panel_Title',
 			//'wsuwp-explore/panel-group'    => 'Block_Panel_Group',
