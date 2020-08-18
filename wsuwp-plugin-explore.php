@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WSUWP Explore
-Version: 0.7.0
+Version: 0.7.1
 Description: A plugin to add Social Media Tools.
 Author: washingtonstateuniversity, Danial Bleile
 Author URI: https://github.com/washingtonstateuniversity/
