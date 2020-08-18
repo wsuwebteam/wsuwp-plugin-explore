@@ -13,6 +13,7 @@ class Block_Panel_Slide extends Block {
 		'video_title' => '',
 		'class_name'      => '',
 		'wrapper_classes'   => 'wsu-explore-panel__slide wsu-c-mini-slider__slide',
+		'lazy_load' => true,
 	);
 
 

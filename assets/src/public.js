@@ -40,6 +40,12 @@ class wsu_explore {
 			scrollbar: {
 			  el: '.swiper-scrollbar',
 			},
+
+			preloadImages: false,
+
+			lazy: {
+				loadPrevNext: true,
+			},
 		});
 
 		this.swiper.on( 'slideChangeTransitionEnd', () => { this.slide_changed() } );
