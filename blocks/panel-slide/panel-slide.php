@@ -14,6 +14,7 @@ class Block_Panel_Slide extends Block {
 		'class_name'      => '',
 		'wrapper_classes'   => 'wsu-explore-panel__slide wsu-c-mini-slider__slide',
 		'lazy_load' => true,
+		'image_focal_point' => array( 'x' => '0.5', 'y' => '0.5' ),
 	);
 
 
