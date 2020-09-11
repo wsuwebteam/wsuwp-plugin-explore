@@ -3,6 +3,11 @@ import { InnerBlocks } from '@wordpress/block-editor';
 import save from './save';
 import edit from './edit';
 
+import { 
+	panelContentAtts,
+	panelSettingsAtts
+} from '../../../packages/block-controls';
+
  
 registerBlockType( 
 	'wsuwp-explore/panel-slider', 
@@ -11,14 +16,8 @@ registerBlockType(
     	icon: 'universal-access-alt',
 		category: 'layout',
 		attributes: {
-			title: {
-				type: 'string',
-				default: '',
-			},
-			caption: {
-				type: 'string',
-				default: '',
-			},
+			...panelContentAtts,
+			...panelSettingsAtts,
 			backgroundImgTitle: {
 				type: 'string',
 				default: '',

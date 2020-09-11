@@ -113,7 +113,7 @@
 	width: 150px;
 
 	&.swiper-button-disabled {
-		color: color(gray,60);
+		display: none;
 	}
 }
 

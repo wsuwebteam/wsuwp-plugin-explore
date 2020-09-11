@@ -25,27 +25,29 @@ import './style.scss';
 import {AudioNarrator } from '../../../packages/block-components/index';
 
 import PanelCaption from '../../../assets/src/components/PanelCaption/panel-caption';
+import { 
+	PanelContentControl,
+	PanelSettingsControl
+} from '../../../packages/block-controls';
 
 const PanelSlider = ( {className, attributes, setAttributes  } ) => {
 
 	return ( 
 		<>
 			<InspectorControls>
-			<PanelBody title="General" initialOpen={false}>
-					<TextControl
-						label="Title"
-						value={attributes.title}
-						onChange={(title) => setAttributes({ title })}
-						placeholder={'Enter image title text here.'}
-					/>
-					<TextControl
-						label="Caption"
-						value={attributes.caption}
-						onChange={(caption) => setAttributes({ caption })}
-						placeholder={'Enter image caption text here.'}
+				<PanelBody title="General" initialOpen={false}>
+					<PanelContentControl
+						attributes={attributes}
+						setAttributes={setAttributes}
 					/>
 				</PanelBody>
-				<PanelBody title="Slide Settings" initialOpen={false}>
+				<PanelBody title="Panel Settings" initialOpen={false}>
+					<PanelSettingsControl
+						attributes={attributes}
+						setAttributes={setAttributes}
+					/>
+				</PanelBody>
+				<PanelBody title="Inner Slide Settings" initialOpen={false}>
 					<ToggleControl
 						label="Auto Rotate"
 						checked={ attributes.auto }
@@ -113,6 +115,7 @@ const PanelSlider = ( {className, attributes, setAttributes  } ) => {
 					></div>
 				<div className="wsu-explore-panel__container">
 					<div className="wsu-explore-panel-image__wrapper">
+						<span className="wsu-explore-panel__slider-title">{attributes.title}</span>
 						<InnerBlocks 
 							allowedBlocks={ [ 'wsuwp-explore/panel-slide' ] }
 							
