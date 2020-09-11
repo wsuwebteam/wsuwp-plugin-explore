@@ -5,6 +5,8 @@ class Block_Panel_Start extends Block {
 	public static $default_atts = array(
 		'title'  => '',
 		'caption' => '',
+		'label'   => '',
+		'show_loading' => false,
 		'background_img_src'         => '',
 		'background_video_src'    => '',
 		'background_video_is_360' => false,

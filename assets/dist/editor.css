@@ -864,6 +864,13 @@ code {
   width: auto;
   background-position: cover; }
 
+.wsu-explore-panel__slider-title {
+  color: #fff;
+  font-size: 26px;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  text-align: center;
+  display: block; }
 
 .wsu-explore-block--temp {
   display: block;
@@ -871,6 +878,18 @@ code {
   color: #ccc;
   background-color: #333;
   border-radius: 4px; }
+
+.wsu-explore-block-slide {
+  width: 50%;
+  background-size: cover;
+  background-position: center;
+  margin: 12px auto;
+  background-color: #555; }
+
+.wsu-explore-block-slide::after {
+  content: "";
+  display: block;
+  padding-bottom: 75%; }
 
 
 

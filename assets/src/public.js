@@ -9,12 +9,12 @@ class wsu_explore {
 		this.container = document.getElementById( container_id );
 		this.swiper_container_selector = swiper_container_selector;
 		this.wsu_mini_sliders = [];
+		this.advanceTimer = false;
 
 		this.init_swiper();
 
 		this.init_events();
 
-		//this.init_map();
 	}
 
 	init_swiper() {
@@ -28,6 +28,7 @@ class wsu_explore {
 			// If we need pagination
 			pagination: {
 			  el: '.swiper-pagination',
+			  clickable: true
 			},
 		
 			// Navigation arrows
@@ -71,6 +72,9 @@ class wsu_explore {
 	}
 
 	init_events() {
+
+		let slide  = this.swiper.slides[ this.swiper.activeIndex ];
+
 		document.querySelectorAll('.wsu-explore-panel__next-slide').forEach(item => {
 			item.addEventListener('click', event => {
 				this.swiper.slideNext();
@@ -101,7 +105,68 @@ class wsu_explore {
 			})
 		});
 
+		document.querySelectorAll('.wsu-explore-audio-narrator__player').forEach( item => {
+			item.addEventListener('ended', event => {
+				this.autoAdvance( this.swiper.activeIndex, true );
+			})
+		});
+
 		
+		let backgroundVideo = this.get_background_video( this.swiper.activeIndex );
+
+		if ( backgroundVideo ) {
+
+			let backgroundVideoPlayer = new Vimeo.Player( backgroundVideo );
+
+			backgroundVideoPlayer.on( 
+				'play', 
+				() => { slide.classList.add( 'wsu-explore-panel--loaded') } 
+			);
+
+		} else {
+
+
+		}
+
+
+
+		
+	}
+
+	initIntro() {
+		let slide  = this.swiper.slides[ activeIndex ];
+		let showLoading = ( slide.dataset.hasOwnProperty( 'auto') && '1' == slide.dataset.auto ) ? true : false;
+
+		if ( showLoading ) {
+
+		}
+	}
+
+	autoAdvance( activeIndex, fromAudio = false ) {
+
+		let slide  = this.swiper.slides[ activeIndex ];
+		let isAuto = ( slide.dataset.hasOwnProperty( 'auto') && '1' == slide.dataset.auto ) ? true : false;
+
+		if ( isAuto ) {
+
+			let delaySlide = ( slide.dataset.hasOwnProperty( 'delay') && slide.dataset.delay ) ? parseInt( slide.dataset.delay ) : 8000;
+			let delayAudio = ( slide.dataset.hasOwnProperty( 'delayAudio') && slide.dataset.delayAudio ) ? parseInt( slide.dataset.delayAudio ) : 3000;
+			let delay      =  fromAudio ? delayAudio : delaySlide;
+
+			if ( this.advanceTimer ) {
+				clearTimeout( this.advanceTimer );
+			}
+
+			console.log( delay );
+
+			this.advanceTimer = setTimeout( () => { this.advanceSlide() }, delay);
+
+		}
+
+	}
+
+	advanceSlide() {
+		this.swiper.slideNext();
 	}
 
 	init_map() {
@@ -187,7 +252,9 @@ class wsu_explore {
 		}
 
 		this.pause_narrator( this.swiper.previousIndex );
-
+		if ( this.advanceTimer ) {
+			clearTimeout( this.advanceTimer );
+		}
 		this.do_background_video( this.swiper.activeIndex, 'play' );
 		this.do_background_video( this.swiper.previousIndex, 'pause' );
 

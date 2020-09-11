@@ -14,7 +14,8 @@ const {
 	SelectControl,
 	Button,
 	FocalPointPicker,
-	BaseControl
+	BaseControl,
+	ToggleControl
 } = wp.components;
 
 import '../../../assets/src/scss/partials/_editor-panel.scss';
@@ -37,6 +38,13 @@ const PanelStart = ( {className, attributes, setAttributes  } ) => {
 						value={attributes.caption}
 						onChange={(caption) => setAttributes({ caption })}
 						placeholder={'Enter caption text here.'}
+					/>
+				</PanelBody>
+				<PanelBody title="Panel Settings" initialOpen={false}>
+					<ToggleControl
+						label="Show Loading Screen"
+						checked={ attributes.showLoading }
+						onChange={ ( showLoading ) => setAttributes( { showLoading } ) }
 					/>
 				</PanelBody>
 				<PanelBody title="Background" initialOpen={false}>

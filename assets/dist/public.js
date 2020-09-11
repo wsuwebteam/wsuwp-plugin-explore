@@ -361,8 +361,9 @@ var wsu_explore = /*#__PURE__*/function () {
     this.container = document.getElementById(container_id);
     this.swiper_container_selector = swiper_container_selector;
     this.wsu_mini_sliders = [];
+    this.advanceTimer = false;
     this.init_swiper();
-    this.init_events(); //this.init_map();
+    this.init_events();
   }
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(wsu_explore, [{
@@ -377,7 +378,8 @@ var wsu_explore = /*#__PURE__*/function () {
         preventInteractionOnTransition: true,
         // If we need pagination
         pagination: {
-          el: '.swiper-pagination'
+          el: '.swiper-pagination',
+          clickable: true
         },
         // Navigation arrows
         navigation: {
@@ -412,6 +414,7 @@ var wsu_explore = /*#__PURE__*/function () {
     value: function init_events() {
       var _this2 = this;
 
+      var slide = this.swiper.slides[this.swiper.activeIndex];
       document.querySelectorAll('.wsu-explore-panel__next-slide').forEach(function (item) {
         item.addEventListener('click', function (event) {
           _this2.swiper.slideNext();
@@ -437,16 +440,66 @@ var wsu_explore = /*#__PURE__*/function () {
           event.stopPropagation();
         });
       });
+      document.querySelectorAll('.wsu-explore-audio-narrator__player').forEach(function (item) {
+        item.addEventListener('ended', function (event) {
+          _this2.autoAdvance(_this2.swiper.activeIndex, true);
+        });
+      });
+      var backgroundVideo = this.get_background_video(this.swiper.activeIndex);
+
+      if (backgroundVideo) {
+        var backgroundVideoPlayer = new Vimeo.Player(backgroundVideo);
+        backgroundVideoPlayer.on('play', function () {
+          slide.classList.add('wsu-explore-panel--loaded');
+        });
+      } else {}
+    }
+  }, {
+    key: "initIntro",
+    value: function initIntro() {
+      var slide = this.swiper.slides[activeIndex];
+      var showLoading = slide.dataset.hasOwnProperty('auto') && '1' == slide.dataset.auto ? true : false;
+
+      if (showLoading) {}
+    }
+  }, {
+    key: "autoAdvance",
+    value: function autoAdvance(activeIndex) {
+      var _this3 = this;
+
+      var fromAudio = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var slide = this.swiper.slides[activeIndex];
+      var isAuto = slide.dataset.hasOwnProperty('auto') && '1' == slide.dataset.auto ? true : false;
+
+      if (isAuto) {
+        var delaySlide = slide.dataset.hasOwnProperty('delay') && slide.dataset.delay ? parseInt(slide.dataset.delay) : 8000;
+        var delayAudio = slide.dataset.hasOwnProperty('delayAudio') && slide.dataset.delayAudio ? parseInt(slide.dataset.delayAudio) : 3000;
+        var delay = fromAudio ? delayAudio : delaySlide;
+
+        if (this.advanceTimer) {
+          clearTimeout(this.advanceTimer);
+        }
+
+        console.log(delay);
+        this.advanceTimer = setTimeout(function () {
+          _this3.advanceSlide();
+        }, delay);
+      }
+    }
+  }, {
+    key: "advanceSlide",
+    value: function advanceSlide() {
+      this.swiper.slideNext();
     }
   }, {
     key: "init_map",
     value: function init_map() {
-      var _this3 = this;
+      var _this4 = this;
 
       var map = document.querySelector('.wsu-explore-panel-group__map__wrapper');
       document.querySelectorAll('.wsu-explore-panel-group__map__pin').forEach(function (item) {
         item.addEventListener('click', function (event) {
-          _this3.swiper.slideTo(item.dataset.slide);
+          _this4.swiper.slideTo(item.dataset.slide);
         });
       });
       map.addEventListener('click', function (event) {
@@ -497,6 +550,11 @@ var wsu_explore = /*#__PURE__*/function () {
       }
 
       this.pause_narrator(this.swiper.previousIndex);
+
+      if (this.advanceTimer) {
+        clearTimeout(this.advanceTimer);
+      }
+
       this.do_background_video(this.swiper.activeIndex, 'play');
       this.do_background_video(this.swiper.previousIndex, 'pause');
       this.update_nav();
