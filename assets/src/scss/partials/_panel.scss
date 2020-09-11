@@ -54,17 +54,7 @@
 			min-width: 177.77vh;
 
 			&__options {
-				position: absolute;
-				bottom: 10px;
-    			left: 20px;
-				color: #fff;
-				z-index: 10;
-
-				.wsu-icon {
-					display: inline-block;
-					padding: 20px 5px 20px 20px;
-					cursor: pointer;
-				}
+				display: none;
 			}
 		}
 	}

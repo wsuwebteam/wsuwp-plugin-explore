@@ -3,7 +3,7 @@
 
 class Explore {
 
-	protected static $version = '0.7.1';
+	protected static $version = '0.9.0';
 
 
 	public static function get( $property ) {

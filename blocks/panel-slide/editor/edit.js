@@ -87,7 +87,12 @@ const PanelSlide = ( {className, attributes, setAttributes  } ) => {
 					</MediaUploadCheck>
 				</PanelBody>
 			</InspectorControls>
-			<pre class="wsu-explore-block--temp">Explore Panel Slide</pre>
+			<div 
+				className="wsu-explore-block wsu-explore-block-slide"
+				style={ {backgroundImage:'url('+attributes.imageSrc+')'}}
+				>
+
+			</div>
 		</>
 	)
 }
