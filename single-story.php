@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Sequence Proof of Concept</title>
+	<title><?php single_post_title(); ?></title>
 	<link rel='stylesheet' id='wsu_design_system_normalize-css'  href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css?ver=0.6.0' type='text/css' media='all' />
 	<link rel="stylesheet" href="https://cdn.web.wsu.edu/designsystem/1.x/build/dist/wsu-design-system.bundle.dist.css">
 	<link rel="stylesheet" href="https://cdn.web.wsu.edu/designsystem/1.x/wsu-icons/dist/wsu-icons.bundle.css">

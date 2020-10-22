@@ -22,7 +22,11 @@ class Block_Panel_Slide extends Block {
 
 		$atts['thumbnail_image_src'] = ( ! empty( $atts['thumbnail_image_src'] ) ) ? $atts['thumbnail_image_src'] : $atts['image_src'];
 
+		ob_start();
+
 		include __DIR__ . '/templates/default.php';
+
+		return ob_get_clean();
 
 	}
 

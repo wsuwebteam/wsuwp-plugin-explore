@@ -41,19 +41,9 @@ class Block {
 
 		$atts = shortcode_atts( static::$default_atts, $atts );
 
-		if ( $echo ) {
+		$block = static::render( $atts, $content );
 
-			static::render( $atts, $content );
-
-		} else {
-
-			ob_start();
-
-			static::render( $atts, $content );
-
-			return ob_get_clean();
-
-		}
+		return $block;
 
 	}
 

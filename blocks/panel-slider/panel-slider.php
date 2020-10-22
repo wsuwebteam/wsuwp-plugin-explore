@@ -35,7 +35,11 @@ class Block_Panel_Slider extends Block {
 		$atts['auto_advance'] = ( ! empty( $atts['auto_advance'] ) ) ? 1 : 0;
 		$atts['label']   = ( ! empty( $atts['label'] ) ) ? $atts['label'] : $atts['title'];
 
+		ob_start();
+
 		include __DIR__ . '/templates/default.php';
+
+		return ob_get_clean();
 
 	}
 

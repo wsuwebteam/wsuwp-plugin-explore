@@ -22,8 +22,11 @@ class Block_Panel_Content extends Block {
 
 	public static function render( $atts, $content ) {
 
+		ob_start();
 
 		include __DIR__ . '/templates/default.php';
+
+		return ob_get_clean();
 
 	}
 
